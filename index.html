@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="William Qu explores how mathematics becomes movement—and how movement becomes feeling through Signal Below, an open-source platformer physics laboratory." />
+  <meta property="og:title" content="William Qu — Mathematics in Motion" />
+  <meta property="og:description" content="Games, physics, experiments, and the mathematics of movement." />
+  <meta property="og:image" content="https://ztongqu.github.io/og.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ztongqu.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>William Qu — Mathematics in Motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="William Qu home"><span>WQ</span><b>WILLIAM QU</b></a>
+    <nav aria-label="Primary navigation">
+      <a href="#project">Project</a>
+      <a href="#lab">Physics Lab</a>
+      <a href="#research">Research</a>
+      <a class="nav-cta" href="https://github.com/ztongqu" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> MATHEMATICS · PHYSICS · GAME DESIGN</p>
+        <h1>I turn equations<br />into <em>movement.</em></h1>
+        <p class="hero-intro">I’m William Qu. I build playable systems to understand how mathematical rules become weight, rhythm, control—and feeling.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#lab">Try the physics lab <span>↓</span></a>
+          <a class="button secondary" href="https://github.com/ztongqu/signal-below" target="_blank" rel="noreferrer">View source <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-orbit reveal" aria-label="Abstract visualization of a jump trajectory">
+        <div class="moon"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="trajectory"></div>
+        <div class="player-dot"><i></i></div>
+        <span class="measure m1">v₀ = −10.8</span>
+        <span class="measure m2">g = 0.62</span>
+        <span class="measure m3">Δt = 16.67 ms</span>
+        <div class="axis axis-x">x</div>
+        <div class="axis axis-y">y</div>
+      </div>
+      <div class="hero-index"><span>PORTFOLIO / 2026</span><span>SCROLL TO EXPERIMENT ↓</span></div>
+    </section>
+
+    <section class="manifesto section-shell reveal">
+      <p class="section-number">01 / QUESTION</p>
+      <blockquote>“Why does movement feel fair, expressive, or satisfying—even when it does not behave like the real world?”</blockquote>
+      <p>That question became <strong>Signal Below</strong>: part puzzle platformer, part level editor, and part open research laboratory.</p>
+    </section>
+
+    <section id="project" class="project section-shell">
+      <div class="section-heading reveal">
+        <div><p class="section-number">02 / FEATURED PROJECT</p><h2>Signal Below</h2></div>
+        <p>An original platform movement system built without a general-purpose physics engine.</p>
+      </div>
+      <div class="project-stage reveal">
+        <div class="game-window">
+          <div class="window-bar"><span><i></i><i></i><i></i></span><b>THE FIRST SIGNAL</b><small>EXPEDITION 01</small></div>
+          <div class="game-scene" aria-label="Stylized scene from Signal Below">
+            <div class="stars"></div><div class="ruin r1"></div><div class="ruin r2"></div>
+            <div class="platform p1"></div><div class="platform p2"></div><div class="platform p3"></div>
+            <div class="rune">Ⅱ</div><div class="beacon"></div><div class="character"></div>
+            <div class="vector-label">v = (3.2, −6.4)</div>
+          </div>
+        </div>
+        <aside class="project-notes">
+          <div><span>01</span><h3>Play the model</h3><p>Jump, fast-fall, crouch, and dash through a puzzle built around precise movement.</p></div>
+          <div><span>02</span><h3>See the state</h3><p>A live debugger exposes position, velocity, collision bounds, buffers, and player state.</p></div>
+          <div><span>03</span><h3>Change the world</h3><p>A built-in editor turns every room into a repeatable test environment.</p></div>
+          <a href="https://github.com/ztongqu/signal-below" target="_blank" rel="noreferrer">Explore the open-source project <b>↗</b></a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="lab" class="lab section-shell">
+      <div class="section-heading reveal">
+        <div><p class="section-number">03 / INTERACTIVE EXPERIMENT</p><h2>Jump trajectory lab</h2></div>
+        <p>Adjust the model. Compare a continuous prediction with a discrete frame-by-frame simulation.</p>
+      </div>
+      <div class="lab-grid reveal">
+        <div class="sim-panel">
+          <canvas id="trajectoryCanvas" width="900" height="520" aria-label="Interactive jump trajectory plot"></canvas>
+          <div class="legend"><span><i class="continuous"></i> continuous model</span><span><i class="discrete"></i> discrete simulation</span></div>
+          <button id="launchButton" class="launch-button">LAUNCH EXPERIMENT <span>↗</span></button>
+        </div>
+        <div class="controls-panel">
+          <div class="control-heading"><span>MODEL PARAMETERS</span><small>LIVE</small></div>
+          <label><span>Gravity <output id="gravityOutput">0.62</output></span><input id="gravity" type="range" min="0.30" max="1.10" value="0.62" step="0.01" /></label>
+          <label><span>Jump velocity <output id="velocityOutput">−10.80</output></span><input id="velocity" type="range" min="7" max="15" value="10.8" step="0.1" /></label>
+          <label><span>Horizontal speed <output id="horizontalOutput">3.20</output></span><input id="horizontal" type="range" min="0" max="6" value="3.2" step="0.1" /></label>
+          <div class="metric-grid">
+            <div><span>PEAK HEIGHT</span><strong id="heightMetric">94.1</strong><small>pixels</small></div>
+            <div><span>TIME TO PEAK</span><strong id="timeMetric">17.4</strong><small>frames</small></div>
+            <div><span>RANGE</span><strong id="rangeMetric">111.5</strong><small>pixels</small></div>
+            <div><span>FLIGHT TIME</span><strong id="flightMetric">34.8</strong><small>frames</small></div>
+          </div>
+          <div class="formula"><span>DISCRETE UPDATE</span><code>v<sub>n+1</sub> = v<sub>n</sub> + gΔt<br />x<sub>n+1</sub> = x<sub>n</sub> + v<sub>n+1</sub>Δt</code></div>
+          <p class="lab-note">The two paths almost agree—but “almost” is where numerical method, frame rate, and game feel begin to matter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="research section-shell">
+      <div class="section-heading reveal">
+        <div><p class="section-number">04 / MATHEMATICS IN MOTION</p><h2>Rules designed for humans</h2></div>
+        <p>The model bends physical realism deliberately, then asks whether the result can be measured.</p>
+      </div>
+      <div class="research-grid">
+        <article class="reveal"><span>7 FRAMES</span><h3>Coyote time</h3><p>A short jump window after leaving a ledge compensates for visual and reaction uncertainty.</p><code>canJump = grounded ∨ t_since_edge &lt; τ</code></article>
+        <article class="reveal"><span>8 DIRECTIONS</span><h3>Vector normalization</h3><p>Dividing by magnitude prevents a diagonal dash from moving √2 times faster.</p><code>d̂ = d / √(dₓ² + dᵧ²)</code></article>
+        <article class="reveal"><span>2 AXES</span><h3>Collision geometry</h3><p>AABB overlap and separated X/Y resolution turn rectangles into stable platforms.</p><code>Aₓ &lt; Bₓ + B<sub>w</sub> ∧ …</code></article>
+        <article class="reveal"><span>VARIABLE</span><h3>Jump expression</h3><p>Releasing jump early adds downward acceleration, transforming one equation into player expression.</p><code>g′ = g + g<sub>cut</sub></code></article>
+      </div>
+    </section>
+
+    <section class="method section-shell reveal">
+      <div><p class="section-number">05 / METHOD</p><h2>Build.<br />Measure.<br /><em>Revise.</em></h2></div>
+      <ol>
+        <li><span>01</span><div><h3>Form a question</h3><p>Translate a feeling—weight, fairness, responsiveness—into something testable.</p></div></li>
+        <li><span>02</span><div><h3>Write the model</h3><p>Make assumptions visible in equations, state, parameters, and code.</p></div></li>
+        <li><span>03</span><div><h3>Compare evidence</h3><p>Measure simulation, theoretical prediction, and player response.</p></div></li>
+        <li><span>04</span><div><h3>Keep the failures</h3><p>Document where intuition and implementation disagree; let that shape the next question.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="roadmap section-shell reveal">
+      <p class="section-number">06 / WHAT COMES NEXT</p>
+      <div class="roadmap-line"><span class="active">01<span>Reliable model</span></span><i></i><span>02<span>Physics Lab</span></span><i></i><span>03<span>Collision studies</span></span><i></i><span>04<span>Player research</span></span><i></i><span>05<span>Public release</span></span></div>
+      <p>This is an early project by design. Its public history records not only finished results, but the evolution of the questions and the understanding behind them.</p>
+    </section>
+
+    <section class="closing section-shell reveal">
+      <p class="eyebrow"><span></span> OPEN SOURCE · OPEN QUESTIONS</p>
+      <h2>The ruins remember.<br /><em>The model keeps learning.</em></h2>
+      <div><a class="button primary" href="https://github.com/ztongqu/signal-below" target="_blank" rel="noreferrer">Explore Signal Below <span>↗</span></a><a class="text-link" href="https://github.com/ztongqu" target="_blank" rel="noreferrer">William on GitHub ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="section-shell"><span>© 2026 WILLIAM QU</span><span>MATHEMATICS IN MOTION</span><a href="#top">BACK TO TOP ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
