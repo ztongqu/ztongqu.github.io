@@ -5,9 +5,19 @@
   letter-spacing: -0.05em;
 }
 
+.hero {
+  width: min(1360px, calc(100% - 48px));
+  grid-template-columns: minmax(420px, 0.8fr) minmax(0, 1.25fr);
+  column-gap: 56px;
+}
+
+.hero::before {
+  left: 39.5%;
+}
+
 .hero-demo {
   min-width: 0;
-  padding-left: 54px;
+  padding-left: 0;
 }
 
 .demo-frame {
@@ -195,6 +205,12 @@
 }
 
 @media (max-width: 850px) {
+  .hero {
+    width: min(100% - 48px, 1180px);
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
   .hero-demo {
     padding: 20px 0 80px;
   }
@@ -206,6 +222,10 @@
 }
 
 @media (max-width: 560px) {
+  .hero {
+    width: min(100% - 28px, 1180px);
+  }
+
   .hero-demo {
     padding-bottom: 56px;
   }
