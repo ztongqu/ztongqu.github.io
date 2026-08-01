@@ -7,12 +7,12 @@
 
 .hero {
   width: min(1360px, calc(100% - 48px));
-  grid-template-columns: minmax(420px, 0.8fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(380px, 1fr) minmax(0, 2fr);
   column-gap: 56px;
 }
 
 .hero::before {
-  left: 39.5%;
+  left: 34%;
 }
 
 .hero-demo {
