@@ -5,6 +5,114 @@
   letter-spacing: -0.05em;
 }
 
+.hero-demo {
+  min-width: 0;
+  padding-left: 54px;
+}
+
+.demo-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #344159;
+  background: #0b111d;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+}
+
+.demo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  z-index: 3;
+  border: 1px solid rgba(201, 216, 240, 0.16);
+  pointer-events: none;
+}
+
+.demo-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.demo-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 7, 14, 0.5), transparent 26%, transparent 62%, rgba(4, 7, 14, 0.82));
+  pointer-events: none;
+}
+
+.demo-topline {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  left: 24px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(243, 246, 255, 0.78);
+  font: 8px var(--mono);
+  letter-spacing: 0.12em;
+}
+
+.recording-dot::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 9px var(--mint);
+  vertical-align: 1px;
+}
+
+.demo-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.demo-caption span {
+  color: #aab6c9;
+  font: 8px var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.demo-toggle {
+  position: absolute;
+  right: 24px;
+  bottom: 23px;
+  z-index: 4;
+  border: 1px solid rgba(243, 246, 255, 0.36);
+  background: rgba(7, 11, 20, 0.72);
+  color: var(--ink);
+  padding: 8px 10px;
+  font: 8px var(--mono);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.demo-toggle:hover,
+.demo-toggle:focus-visible {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+.demo-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 4px 0;
+  color: #718097;
+  font: 8px var(--mono);
+  letter-spacing: 0.05em;
+}
+
 .manifesto blockquote {
   max-width: 850px;
   font-size: clamp(29px, 3.7vw, 48px);
@@ -87,6 +195,10 @@
 }
 
 @media (max-width: 850px) {
+  .hero-demo {
+    padding: 20px 0 80px;
+  }
+
   .current-notes {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -94,6 +206,26 @@
 }
 
 @media (max-width: 560px) {
+  .hero-demo {
+    padding-bottom: 56px;
+  }
+
+  .demo-topline {
+    top: 17px;
+    right: 18px;
+    left: 18px;
+  }
+
+  .demo-caption {
+    bottom: 15px;
+    left: 18px;
+  }
+
+  .demo-toggle {
+    right: 18px;
+    bottom: 18px;
+  }
+
   .hero h1 {
     font-size: 48px;
   }

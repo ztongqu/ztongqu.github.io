@@ -40,17 +40,17 @@
           <a class="button secondary" href="https://github.com/ztongqu/signal-below" target="_blank" rel="noreferrer">View source <span>↗</span></a>
         </div>
       </div>
-      <div class="hero-orbit reveal" aria-label="Abstract visualization of a jump trajectory">
-        <div class="moon"></div>
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="trajectory"></div>
-        <div class="player-dot"><i></i></div>
-        <span class="measure m1">v₀ = −10.8</span>
-        <span class="measure m2">g = 0.62</span>
-        <span class="measure m3">Δt = 16.67 ms</span>
-        <div class="axis axis-x">x</div>
-        <div class="axis axis-y">y</div>
+      <div class="hero-demo reveal">
+        <div class="demo-frame">
+          <video id="heroDemo" muted loop playsinline autoplay preload="metadata" poster="assets/demo-poster.jpg" aria-label="Seven-second gameplay demonstration of Signal Below">
+            <source src="assets/demo.mp4" type="video/mp4" />
+          </video>
+          <div class="demo-shade" aria-hidden="true"></div>
+          <div class="demo-topline"><span>LIVE BUILD / 00:07</span><span class="recording-dot">GAMEPLAY</span></div>
+          <button id="demoToggle" class="demo-toggle" type="button" aria-label="Pause gameplay demonstration">PAUSE</button>
+          <p class="demo-caption">Actual gameplay capture<br /><span>Signal Below · Build 0.1</span></p>
+        </div>
+        <div class="demo-data" aria-hidden="true"><span>v₀ = −10.8</span><span>g = 0.62</span><span>Δt ≈ 16.67 ms</span></div>
       </div>
       <div class="hero-index"><span>SIGNAL BELOW / BUILD 0.1</span><span>SCROLL TO EXPERIMENT ↓</span></div>
     </section>

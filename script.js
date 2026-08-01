@@ -4,11 +4,33 @@ const gravity = document.querySelector("#gravity");
 const velocity = document.querySelector("#velocity");
 const horizontal = document.querySelector("#horizontal");
 const launchButton = document.querySelector("#launchButton");
+const heroDemo = document.querySelector("#heroDemo");
+const demoToggle = document.querySelector("#demoToggle");
 const outputs = {
   gravity: document.querySelector("#gravityOutput"), velocity: document.querySelector("#velocityOutput"), horizontal: document.querySelector("#horizontalOutput"),
   height: document.querySelector("#heightMetric"), time: document.querySelector("#timeMetric"), range: document.querySelector("#rangeMetric"), flight: document.querySelector("#flightMetric")
 };
 let animation = 0;
+
+function setDemoState(playing) {
+  if (!heroDemo || !demoToggle) return;
+  if (playing) {
+    heroDemo.play().catch(() => setDemoState(false));
+    demoToggle.textContent = "PAUSE";
+    demoToggle.setAttribute("aria-label", "Pause gameplay demonstration");
+  } else {
+    heroDemo.pause();
+    demoToggle.textContent = "PLAY";
+    demoToggle.setAttribute("aria-label", "Play gameplay demonstration");
+  }
+}
+
+if (heroDemo && demoToggle) {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) setDemoState(false);
+  demoToggle.addEventListener("click", () => setDemoState(heroDemo.paused));
+  reducedMotion.addEventListener("change", event => setDemoState(!event.matches));
+}
 
 function model() {
   return { g: Number(gravity.value), v0: -Number(velocity.value), vx: Number(horizontal.value) };
