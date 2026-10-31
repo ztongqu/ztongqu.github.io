@@ -1,169 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="William Qu documents the mathematics, code, and design decisions behind Signal Below, a 2D platform game and movement experiment." />
-  <meta property="og:title" content="William Qu — Mathematics in Motion" />
-  <meta property="og:description" content="A student project about platform-game movement, numerical simulation, and player control." />
-  <meta property="og:image" content="https://ztongqu.github.io/og.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ztongqu.github.io/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>William Qu — Mathematics in Motion</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="editorial-v3.css" />
-  <link rel="stylesheet" href="forest.css?v=20261026" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>William Qu — Projects</title>
+  <meta name="description" content="Games, mathematics, and hardware projects by William Qu.">
+  <meta property="og:title" content="William Qu — Projects"><meta property="og:description" content="Game Physics &amp; Feel, Wi-Fi Human Detection, and City of Empyrean."><meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=3">
 </head>
-<body>
-  <div class="grain" aria-hidden="true"></div>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="William Qu home"><span>WQ</span><b>WILLIAM QU</b></a>
-    <nav aria-label="Primary navigation">
-      <a href="#project">Project</a>
-      <a href="#lab">Physics Lab</a>
-      <a href="#research">Research</a>
-      <a class="nav-cta" href="https://github.com/ztongqu" target="_blank" rel="noreferrer">GitHub ↗</a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero section-shell">
-      <div class="hero-copy reveal">
-        <p class="eyebrow"><span></span> MATHEMATICS · PHYSICS · GAME DESIGN</p>
-        <h1>How should a<br />jump <em>feel?</em></h1>
-        <p class="hero-intro">I’m William Qu. I’m building a 2D platform game to learn how equations, frame-by-frame simulation, and small design choices change the way movement feels to a player.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#lab">Try the physics lab <span>↓</span></a>
-          <a class="button secondary" href="https://github.com/ztongqu/signal-below" target="_blank" rel="noreferrer">View source <span>↗</span></a>
-        </div>
-      </div>
-      <div class="hero-demo reveal">
-        <div class="demo-frame">
-          <video id="heroDemo" muted loop playsinline autoplay preload="metadata" poster="assets/demo-poster.jpg" aria-label="Seven-second gameplay demonstration of Signal Below">
-            <source src="assets/demo.mp4" type="video/mp4" />
-          </video>
-          <div class="demo-shade" aria-hidden="true"></div>
-          <div class="demo-topline"><span>LIVE BUILD / 00:07</span><span class="recording-dot">GAMEPLAY</span></div>
-          <button id="demoToggle" class="demo-toggle" type="button" aria-label="Pause gameplay demonstration">PAUSE</button>
-          <p class="demo-caption">Actual gameplay capture<br /><span>Signal Below · Build 0.1</span></p>
-        </div>
-        <div class="demo-data" aria-hidden="true"><span>v₀ = −10.8</span><span>g = 0.62</span><span>Δt ≈ 16.67 ms</span></div>
-      </div>
-      <div class="hero-index"><span>SIGNAL BELOW / BUILD 0.1</span><span>SCROLL TO EXPERIMENT ↓</span></div>
-    </section>
-
-    <section class="manifesto section-shell reveal">
-      <p class="section-number">01 / STARTING POINT</p>
-      <blockquote>A realistic jump is not necessarily a good game jump.</blockquote>
-      <p>I started <strong>Signal Below</strong> by writing a simple gravity-and-collision loop. The more I played it, the more I noticed that the important questions were not only “Is the equation correct?” but also “Can the player predict it?” and “Does a mistake feel deserved?”</p>
-    </section>
-
-    <section id="project" class="project section-shell">
-      <div class="section-heading reveal">
-        <div><p class="section-number">02 / FEATURED PROJECT</p><h2>Signal Below</h2></div>
-        <p>A playable first build with a custom movement controller, collision system, puzzle room, debugger, and level editor.</p>
-      </div>
-      <div class="project-stage reveal">
-        <div class="game-window">
-          <div class="window-bar"><span><i></i><i></i><i></i></span><b>THE FIRST SIGNAL</b><small>EXPEDITION 01</small></div>
-          <div class="game-scene" aria-label="Stylized scene from Signal Below">
-            <div class="stars"></div><div class="ruin r1"></div><div class="ruin r2"></div>
-            <div class="platform p1"></div><div class="platform p2"></div><div class="platform p3"></div>
-            <div class="rune">Ⅱ</div><div class="beacon"></div><div class="character"></div>
-            <div class="vector-label">v = (3.2, −6.4)</div>
-          </div>
-        </div>
-        <aside class="project-notes">
-          <div><span>PLAYER</span><h3>22 × 30 px</h3><p>The collision box shrinks to 22 × 20 px while crouching, with the feet kept in the same place.</p></div>
-          <div><span>JUMP</span><h3>−10.8 px/frame</h3><p>Gravity adds 0.62 px/frame². Releasing jump early adds extra downward acceleration.</p></div>
-          <div><span>ASSIST</span><h3>7 + 8 frames</h3><p>Seven frames of coyote time and eight frames of input buffering make near-misses less arbitrary.</p></div>
-          <a href="https://github.com/ztongqu/signal-below" target="_blank" rel="noreferrer">Read the code and project notes <b>↗</b></a>
-        </aside>
-      </div>
-    </section>
-
-    <section id="lab" class="lab section-shell">
-      <div class="section-heading reveal">
-        <div><p class="section-number">03 / INTERACTIVE EXPERIMENT</p><h2>Jump trajectory lab</h2></div>
-        <p>Change three parameters and compare the textbook projectile equation with the update rule used by a game loop.</p>
-      </div>
-      <div class="lab-grid reveal">
-        <div class="sim-panel">
-          <canvas id="trajectoryCanvas" width="900" height="520" aria-label="Interactive jump trajectory plot"></canvas>
-          <div class="legend"><span><i class="continuous"></i> continuous model</span><span><i class="discrete"></i> discrete simulation</span></div>
-          <button id="launchButton" class="launch-button">LAUNCH EXPERIMENT <span>↗</span></button>
-        </div>
-        <div class="controls-panel">
-          <div class="control-heading"><span>MODEL PARAMETERS</span><small>LIVE</small></div>
-          <label><span>Gravity <output id="gravityOutput">0.62</output></span><input id="gravity" type="range" min="0.30" max="1.10" value="0.62" step="0.01" /></label>
-          <label><span>Jump velocity <output id="velocityOutput">−10.80</output></span><input id="velocity" type="range" min="7" max="15" value="10.8" step="0.1" /></label>
-          <label><span>Horizontal speed <output id="horizontalOutput">3.20</output></span><input id="horizontal" type="range" min="0" max="6" value="3.2" step="0.1" /></label>
-          <div class="metric-grid">
-            <div><span>PEAK HEIGHT</span><strong id="heightMetric">94.1</strong><small>pixels</small></div>
-            <div><span>TIME TO PEAK</span><strong id="timeMetric">17.4</strong><small>frames</small></div>
-            <div><span>RANGE</span><strong id="rangeMetric">111.5</strong><small>pixels</small></div>
-            <div><span>FLIGHT TIME</span><strong id="flightMetric">34.8</strong><small>frames</small></div>
-          </div>
-          <div class="formula"><span>DISCRETE UPDATE</span><code>v<sub>n+1</sub> = v<sub>n</sub> + gΔt<br />x<sub>n+1</sub> = x<sub>n</sub> + v<sub>n+1</sub>Δt</code></div>
-          <p class="lab-note">This graph assumes one simulation step per frame and no collision. The gold curve is continuous; the dashed path uses semi-implicit Euler integration. Their difference is numerical, not graphical.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="research section-shell">
-      <div class="section-heading reveal">
-        <div><p class="section-number">04 / DESIGN DECISIONS</p><h2>Where the model bends</h2></div>
-        <p>These rules are intentionally unlike a basic projectile model. Each one solves a specific control problem.</p>
-      </div>
-      <div class="research-grid">
-        <article class="reveal"><span>PROBLEM: LATE INPUT</span><h3>Coyote time</h3><p>The player may press jump just after the collision box leaves a ledge. I keep the last grounded state for seven frames before rejecting the input.</p><code>canJump = grounded ∨ t_since_edge &lt; τ</code></article>
-        <article class="reveal"><span>PROBLEM: DIAGONAL SPEED</span><h3>Vector normalization</h3><p>The vector (1, 1) has magnitude √2. Normalizing it keeps diagonal and horizontal dashes at the same speed.</p><code>d̂ = d / √(dₓ² + dᵧ²)</code></article>
-        <article class="reveal"><span>PROBLEM: SOLID SURFACES</span><h3>Collision geometry</h3><p>I test axis-aligned rectangles, move on one axis at a time, and push overlaps back to the nearest surface.</p><code>Aₓ &lt; Bₓ + B<sub>w</sub> ∧ …</code></article>
-        <article class="reveal"><span>PROBLEM: ONE JUMP, TWO HEIGHTS</span><h3>Variable jump height</h3><p>When jump is released during ascent, extra gravity shortens the arc. Holding the button produces the full jump.</p><code>g′ = g + g<sub>cut</sub></code></article>
-      </div>
-    </section>
-
-    <section class="current-notes section-shell reveal">
-      <div>
-        <p class="section-number">05 / CURRENT NOTES</p>
-        <h2>What is not solved yet</h2>
-      </div>
-      <div class="notes-list">
-        <article><span>01</span><div><h3>The time step is not fully fixed</h3><p>The current build scales movement by elapsed frame time but still counts a few actions in rendered frames. High-refresh-rate testing may reveal inconsistent timing.</p></div></article>
-        <article><span>02</span><div><h3>Fast objects can cross thin walls</h3><p>Collision is checked after movement. At a high enough speed, a player could move from one side of an obstacle to the other without overlapping it.</p></div></article>
-        <article><span>03</span><div><h3>“Feels better” needs evidence</h3><p>The present values came from playtesting and adjustment. I want to compare them systematically and record completion rate as well as player comments.</p></div></article>
-      </div>
-    </section>
-
-    <section class="method section-shell reveal">
-      <div><p class="section-number">06 / WORKING METHOD</p><h2>Question.<br />Test.<br /><em>Change.</em></h2></div>
-      <ol>
-        <li><span>01</span><div><h3>Name one problem</h3><p>Start with a specific observation, such as overshooting a platform or missing a jump at its edge.</p></div></li>
-        <li><span>02</span><div><h3>Change one rule</h3><p>Keep the parameter and update rule visible so the same case can be repeated.</p></div></li>
-        <li><span>03</span><div><h3>Compare the result</h3><p>Check the predicted trajectory, the simulated trajectory, and what happens during play.</p></div></li>
-        <li><span>04</span><div><h3>Write down what failed</h3><p>A failed idea is useful if it narrows the next question. The repository keeps that history.</p></div></li>
-      </ol>
-    </section>
-
-    <section class="roadmap section-shell reveal">
-      <p class="section-number">07 / NEXT STEPS</p>
-      <div class="roadmap-line"><span class="active">01<span>Reliable model</span></span><i></i><span>02<span>Physics Lab</span></span><i></i><span>03<span>Collision studies</span></span><i></i><span>04<span>Player research</span></span><i></i><span>05<span>Public release</span></span></div>
-      <p>My next technical step is to separate the movement update from React and Canvas. That will make it possible to replay the same inputs, test exact trajectories, and compare time-step methods without running the full game.</p>
-    </section>
-
-    <section class="closing section-shell reveal">
-      <p class="eyebrow"><span></span> SOURCE, NOTES, AND ROADMAP</p>
-      <h2>Signal Below is<br /><em>still in progress.</em></h2>
-      <p class="closing-copy">The repository contains the playable build, source code, current limitations, and the order in which I plan to investigate them.</p>
-      <div><a class="button primary" href="https://github.com/ztongqu/signal-below" target="_blank" rel="noreferrer">Explore Signal Below <span>↗</span></a><a class="text-link" href="https://github.com/ztongqu" target="_blank" rel="noreferrer">William on GitHub ↗</a></div>
-    </section>
-  </main>
-
-  <footer class="section-shell"><span>© 2026 WILLIAM QU</span><span>MATHEMATICS IN MOTION</span><a href="#top">BACK TO TOP ↑</a></footer>
-  <script src="script.js?v=20261026"></script>
-</body>
-</html>
+<body class="portfolio">
+<a class="skip" href="#projects">Skip to projects</a>
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">▦</span> WILLIAM QU</a><nav aria-label="Main navigation"><a href="#projects">Projects</a><a href="#about">About</a><a class="nav-link" href="https://github.com/ztongqu" target="_blank" rel="noreferrer">GitHub ↗</a></nav></header>
+<main>
+<section class="hero" id="top">
+  <canvas id="world" role="img" aria-label="A pixel landscape of mountains, pine trees, a cabin and an underground cavern"></canvas>
+  <div class="hero-content"><h1>Small worlds.<br><em>Real questions.</em></h1><p class="hero-intro">Games, mathematics, and things I build.</p><a class="button" href="#projects">View projects <span>↓</span></a></div>
+</section>
+<section class="section projects" id="projects" aria-labelledby="projects-title">
+  <h2 id="projects-title">Projects</h2>
+  <div class="project-stack">
+    <article class="project"><div class="project-open"><div class="project-art"><video autoplay muted loop playsinline controls preload="auto" poster="assets/signal-below.jpg" aria-label="Game Physics &amp; Feel gameplay recording"><source src="assets/signal-below.mp4" type="video/mp4">Your browser does not support this video.</video></div><a class="project-info" href="projects/signal-below.html"><p class="project-category">01 / GAME DEVELOPMENT</p><h3>Game Physics &amp; Feel</h3><p>A 2D puzzle platformer exploring movement, collision, and the mathematics of game control.</p><span class="read-link">View project <span aria-hidden="true">↗</span></span></a></div></article>
+    <article class="project"><a class="project-open" href="projects/wifi-sensing.html"><div class="project-art wifi-art"><canvas id="network-art" role="img" aria-label="Four ESP32 sensing nodes connected through a router to a laptop"></canvas></div><div class="project-info"><p class="project-category">02 / HARDWARE & SENSING</p><h3>Wi-Fi Human Detection</h3><p>A four-node ESP32 prototype for collecting Wi-Fi signals and exploring room activity.</p><span class="read-link">View project <span aria-hidden="true">↗</span></span></div></a></article>
+    <article class="project project-pending"><div class="project-open"><div class="project-art celeste-art" aria-hidden="true"><svg viewBox="0 0 720 405" xmlns="http://www.w3.org/2000/svg"><path fill="#203932" d="M0 290h66v-34h56v-34h48v-38h46v-42h45v-40h51V62h49v40h45v40h48v42h45v38h56v34h58v34h107v115H0z"/><path fill="#3a5748" d="M45 405V355h70v-40h65v-40h54v-47h48v-45h47v-43h49v43h47v45h49v47h55v40h64v40h66v50z"/><path fill="#c3df80" d="M282 228v-45h47v-43h49v43h47v45h-30v-19h-25v-21h-28v21h-27v19z"/><path fill="#748d64" d="M234 275h48v-47h33v47h-34v44h-47z"/><rect x="538" y="80" width="10" height="10" fill="#e1ce8c"/><rect x="550" y="68" width="10" height="10" fill="#e1ce8c"/><rect x="562" y="80" width="10" height="10" fill="#e1ce8c"/><rect x="550" y="92" width="10" height="10" fill="#e1ce8c"/></svg></div><div class="project-info"><p class="project-category">03 / CELESTE MOD</p><h3>City of Empyrean</h3><p>A collaborative mod for Celeste.</p><span class="pending-note">Details coming soon</span></div></div></article>
+  </div>
+</section>
+<section class="about-wrap" id="about"><div class="section about-simple"><h2>William Qu</h2><div><p>Grade 12 · Wuxi Dipont School of Arts and Science</p><p>Exploring game development, computational mathematics, and hardware.</p></div></div></section>
+</main><footer><span>© 2026 William Qu</span><a href="#top">Back to top ↑</a></footer><script src="landscape.js"></script><script src="app.js"></script>
+</body></html>
