@@ -36,3 +36,5 @@
 @media(max-width:760px){.portfolio .hero{min-height:400px}.portfolio .hero-content{padding-top:54px;padding-bottom:60px}.project-stack .project-open{grid-template-columns:1fr;gap:22px}.project-stack .project{padding:28px 0 34px}.project-stack .project-info{padding:0}.project-stack .project h3{font-size:30px;margin:10px 0 14px}.project-stack .project p{max-width:550px;font-size:14px}.project-stack .read-link,.pending-note{margin-top:20px}.about-simple{grid-template-columns:1fr;gap:22px}.portfolio .projects{padding-top:44px;padding-bottom:50px}}
 @media(max-width:520px){.portfolio .hero{min-height:390px}.portfolio .hero-content{padding-top:44px;padding-bottom:50px}.portfolio .hero h1{font-size:48px}.portfolio .site-header nav{width:auto;gap:16px}.portfolio .site-header{gap:12px}.portfolio .brand{font-size:12px}.portfolio .nav-link{padding:0;border:0}.portfolio .hero-intro{font-size:13px}.project-stack .project h3{font-size:28px}.portfolio footer>span{width:auto;order:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.button:hover{transform:none}}
+
+.feature-grid .text-link{display:inline-block;margin-top:18px}
