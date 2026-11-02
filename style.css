@@ -22,6 +22,10 @@
 .pending-note{display:block;margin-top:28px;font-size:12px;color:var(--muted)}
 .celeste-art,.fourier-art{background:#14251e}
 .celeste-art svg,.fourier-art svg{display:block;width:100%;height:100%;shape-rendering:crispEdges}
+.fourier-art canvas{display:block;width:100%;height:100%}
+.fourier-toggle{position:absolute;right:15px;bottom:12px;padding:6px 12px;border:1px solid #71895a;background:#14251ed9;color:var(--paper);font-size:11px;min-height:34px}
+.fourier-toggle:hover{border-color:var(--green);color:var(--green)}
+.fourier-error{position:absolute;inset:35% 20px auto;color:var(--muted);font-size:12px}
 .about-simple{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;padding-top:52px;padding-bottom:52px;align-items:start}
 .about-simple h2{font-size:30px}
 .about-simple p{font-size:13px;color:var(--muted);margin:0 0 10px}
