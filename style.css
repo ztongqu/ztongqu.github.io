@@ -38,3 +38,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.button:hover{transform:none}}
 
 .feature-grid .text-link{display:inline-block;margin-top:18px}
+
+.feel-note{max-width:780px;margin-top:44px}.feel-note h2{font-size:30px;line-height:1.2;margin-bottom:24px}.feel-note p:last-child{margin-bottom:0}
