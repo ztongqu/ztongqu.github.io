@@ -29,8 +29,8 @@
     const X = x => width / 2 + (x - bounds.cx) * scale;
     const Y = y => height / 2 - (y - bounds.cy) * scale;
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#14251e'; ctx.fillRect(0, 0, width, height);
-    ctx.strokeStyle = '#253d31'; ctx.lineWidth = 1;
+    ctx.fillStyle = '#2b221d'; ctx.fillRect(0, 0, width, height);
+    ctx.strokeStyle = '#403228'; ctx.lineWidth = 1;
     for (let x = 0; x < width; x += 28) {
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
     }
@@ -42,13 +42,13 @@
       const [x, y] = vectors[i], [xx, yy] = vectors[i + 1];
       const radius = Math.hypot(xx - x, yy - y) * scale;
       if (radius > 1) {
-        ctx.strokeStyle = '#71895a55'; ctx.beginPath();
+        ctx.strokeStyle = '#b4946755'; ctx.beginPath();
         ctx.arc(X(x), Y(y), radius, 0, Math.PI * 2); ctx.stroke();
       }
-      ctx.strokeStyle = '#c0c28a99'; ctx.beginPath();
+      ctx.strokeStyle = '#d1b88899'; ctx.beginPath();
       ctx.moveTo(X(x), Y(y)); ctx.lineTo(X(xx), Y(yy)); ctx.stroke();
     }
-    ctx.strokeStyle = '#c3df80'; ctx.lineWidth = 2.4;
+    ctx.strokeStyle = '#f0d79f'; ctx.lineWidth = 2.4;
     ctx.lineJoin = 'round'; ctx.beginPath();
     const end = Math.floor(progress * samples);
     for (let i = 0; i <= end; i++) {
@@ -57,9 +57,9 @@
     }
     ctx.stroke();
     const tip = vectors[vectors.length - 1];
-    ctx.fillStyle = '#e1ce8c'; ctx.beginPath();
+    ctx.fillStyle = '#fff0cd'; ctx.beginPath();
     ctx.arc(X(tip[0]), Y(tip[1]), 3.5, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#a8b9aa'; ctx.font = '10px monospace';
+    ctx.fillStyle = '#c0aa8c'; ctx.font = '10px monospace';
     ctx.fillText('DRAWING THE LETTER I', 18, 24);
     ctx.fillText(`${terms.length} spinning arrows`, 18, height - 18);
   }

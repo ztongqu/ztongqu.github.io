@@ -74,3 +74,10 @@ summary:hover{color:var(--green)}
 
 .network-figure{margin-left:0;margin-right:0}
 .network-figure img{max-width:860px;margin:auto}
+
+/* Individual home-card palettes, within the existing dark portfolio. */
+.portfolio .project-stack .celeste-art{background:#251f36;border-color:#4c405b}
+.portfolio .project-stack .fourier-art{background:#2b221d;border-color:#534134}
+.portfolio .fourier-art .fourier-toggle{background:#2b221de8;border-color:#9e8158;color:#f0d79f}
+.portfolio .fourier-art .fourier-toggle:hover{border-color:#f0d79f;color:#fff0cd}
+.portfolio .fourier-art .fourier-error{color:#d1b888}
