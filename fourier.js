@@ -60,8 +60,8 @@
     ctx.fillStyle = '#e1ce8c'; ctx.beginPath();
     ctx.arc(X(tip[0]), Y(tip[1]), 3.5, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = '#a8b9aa'; ctx.font = '10px monospace';
-    ctx.fillText('LETTER I / FOURIER RECONSTRUCTION', 18, 24);
-    ctx.fillText(`${terms.length} rotating vectors`, 18, height - 18);
+    ctx.fillText('DRAWING THE LETTER I', 18, 24);
+    ctx.fillText(`${terms.length} spinning arrows`, 18, height - 18);
   }
 
   function resize() {
