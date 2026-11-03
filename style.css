@@ -66,3 +66,11 @@ summary:hover{color:var(--green)}
 .code-details{margin-top:25px}.code-details[open]>summary{margin-bottom:24px}
 @media(max-width:760px){.detail-hero{padding-top:36px;padding-bottom:40px}.feature-grid{gap:30px}.feature-grid article{padding:0}.fourier-lab{padding:0}.fourier-actions label{max-width:none}}
 .wifi-art #wifi-toggle{right:50%;bottom:6px;transform:translateX(50%)}
+.network-figure img{display:block;width:100%;height:auto}
+.network-key{display:flex;justify-content:center;flex-wrap:wrap;gap:16px 32px;padding:16px 0 0;color:var(--muted);font-size:12px}
+.network-key span{display:flex;align-items:center;gap:10px}
+.network-key i{display:inline-block;width:28px;border-top:2px solid var(--green)}
+.network-key .signal-back{border-top:2px dashed var(--gold)}
+
+.network-figure{margin-left:0;margin-right:0}
+.network-figure img{max-width:860px;margin:auto}
