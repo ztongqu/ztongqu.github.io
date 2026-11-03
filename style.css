@@ -81,3 +81,14 @@ summary:hover{color:var(--green)}
 .portfolio .fourier-art .fourier-toggle{background:#2b221de8;border-color:#9e8158;color:#f0d79f}
 .portfolio .fourier-art .fourier-toggle:hover{border-color:#f0d79f;color:#fff0cd}
 .portfolio .fourier-art .fourier-error{color:#d1b888}
+
+/* Actual mod screenshots and William’s original story notes. */
+.portfolio .project-stack .celeste-art img{object-fit:contain;background:#080d0b}
+.city-screenshots{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.city-screenshots figure,.city-notes{margin:0;min-width:0}
+.city-image-link{display:block;border:1px solid var(--line);background:#080d0b}
+.city-image-link:hover{border-color:var(--green)}
+.city-image-link img{width:100%;height:auto}
+.city-notes{margin-top:30px;max-width:680px}
+.city-notes .caption{margin-top:12px}
+@media(max-width:760px){.city-screenshots{grid-template-columns:1fr;gap:20px}}
