@@ -65,3 +65,4 @@ summary{cursor:pointer;color:var(--muted);font-size:12px;line-height:1.8}
 summary:hover{color:var(--green)}
 .code-details{margin-top:25px}.code-details[open]>summary{margin-bottom:24px}
 @media(max-width:760px){.detail-hero{padding-top:36px;padding-bottom:40px}.feature-grid{gap:30px}.feature-grid article{padding:0}.fourier-lab{padding:0}.fourier-actions label{max-width:none}}
+.wifi-art #wifi-toggle{right:50%;bottom:6px;transform:translateX(50%)}
