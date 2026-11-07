@@ -93,4 +93,4 @@ summary:hover{color:var(--green)}
 .city-notes .caption{margin-top:12px}
 @media(max-width:760px){.city-screenshots{grid-template-columns:1fr;gap:20px}}
 
-.portfolio .project-stack .celeste-art video{object-fit:contain;background:#080d0b}
+.portfolio .project-stack .celeste-art video{object-fit:cover;background:#080d0b}
