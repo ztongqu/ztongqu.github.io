@@ -94,3 +94,18 @@ summary:hover{color:var(--green)}
 @media(max-width:760px){.city-screenshots{grid-template-columns:1fr;gap:20px}}
 
 .portfolio .project-stack .celeste-art video{object-fit:cover;background:#080d0b}
+
+/* Wi-Fi experiment footage and hands-on work. */
+.wifi-demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.wifi-demo-player{min-width:0;display:flex;justify-content:center}
+.wifi-demo video{display:block;width:100%;max-width:400px;max-height:660px;height:auto;object-fit:contain;background:#0b1512;border:1px solid var(--line)}
+.wifi-demo h2{margin-bottom:28px}
+.soldering-photos{margin:30px 0}
+.soldering-photos>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.soldering-photos a{display:block}
+.soldering-photos img{width:100%;height:auto;border:1px solid var(--line)}
+.soldering-photos .caption{margin-top:12px}
+.two-column>.network-figure{grid-column:1/-1;margin:4px 0 0}
+.earlier-readings>summary{font:500 23px/1.4 var(--display);color:var(--paper)}
+.earlier-readings[open]>summary{margin-bottom:30px}
+@media(max-width:760px){.wifi-demo{grid-template-columns:1fr;gap:30px}.wifi-demo video{max-height:none;max-width:440px}.soldering-photos>div{grid-template-columns:1fr}.two-column>.network-figure{grid-column:auto}}
